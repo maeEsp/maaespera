@@ -8,17 +8,17 @@ import Skillsets from "./sections/skillsets";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#fff9f2] text-slate-900">
-      <div className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-        <header className="flex items-center justify-between">
+      <div className="mx-auto flex max-w-5xl flex-col gap-8 md:gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+        <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-xl font-semibold tracking-tight">
+            <h1 className="text-lg sm:text-xl font-semibold tracking-tight">
               Mae Angela Espera
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-xs sm:text-sm text-slate-500">
               Web Developer · Project Manager · Quality Assurance
             </p>
           </div>
-          <nav className="hidden gap-6 text-sm font-medium text-[#f6a623] sm:flex">
+          <nav className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-[#f6a623]">
             <a
               href="#projects"
               onClick={(e) => {
@@ -50,7 +50,7 @@ export default function Home() {
         >
           <div className="flex justify-center">
             <div className="relative">
-              <div className="h-96 w-96 overflow-hidden rounded-full border-4 border-white bg-white shadow-md">
+              <div className="h-48 w-48 md:h-64 md:w-64 lg:h-96 lg:w-96 overflow-hidden rounded-full border-4 border-white bg-white shadow-md">
                 <Image
                   src="/images/MAE_IDPIC.jpg"
                   alt="Portrait of Mae Angela Espera"
@@ -61,7 +61,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="absolute -left-20 bottom-0 z-10 h-48 w-48 overflow-hidden rounded-2xl border-4 border-none">
+              <div className="absolute -left-15 md:-left-15 lg:-left-20 bottom-0 z-10 h-32 w-32 md:h-32 md:w-32 lg:h-48 lg:w-48 overflow-hidden rounded-2xl border-4 border-none">
                 <Image
                   src="/images/miffy/miffy-flowers.png"
                   alt="Miffy illustration"
@@ -111,12 +111,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="space-y-4 rounded-3xl bg-[#fef0d8] px-6 py-6 shadow-sm flex flex-row gap-4">
-          <div className="w-1/2">
-            <h3 className="text-lg font-semibold tracking-tight text-[#f6a623] pb-2">
+        <section className="space-y-4 rounded-3xl bg-[#fef0d8] px-4 py-4 sm:px-6 sm:py-6 shadow-sm flex flex-col md:flex-row gap-4 md:gap-6">
+          <div className="w-full md:w-1/2">
+            <h3 className="text-base sm:text-lg font-semibold tracking-tight text-[#f6a623] pb-2">
               Soft, simple, and friendly web experiences.
             </h3>
-            <p className="max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-600 md:text-base">
               I am a front-end developer with experience creating responsive,
               accessible, and user-centered digital experiences, while also
               being adaptable to roles in quality assurance and project
@@ -127,38 +127,48 @@ export default function Home() {
             </p>
           </div>
 
-          <dl className="mt-4 grid grid-cols-2 gap-4 text-sm w-1/2">
+          <dl className="mt-0 md:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm w-full md:w-1/2">
             <div>
-              <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              <dt className="text-[10px] sm:text-xs font-medium uppercase tracking-wide text-slate-500">
                 Role
               </dt>
-              <dd className="mt-1 font-medium text-slate-900">
+              <dd className="mt-1 font-medium text-slate-700 text-xs sm:text-sm">
                 Frontend Developer · QA · Project Management
               </dd>
             </div>
             <div>
-              <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              <dt className="text-[10px] sm:text-xs font-medium uppercase tracking-wide text-slate-500">
                 Location
               </dt>
-              <dd className="mt-1 text-slate-700">Davao City, Philippines</dd>
+              <dd className="mt-1 font-medium text-slate-700 text-xs sm:text-sm">
+                Davao City, Philippines
+              </dd>
             </div>
             <div>
-              <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              <dt className="text-[10px] sm:text-xs font-medium uppercase tracking-wide text-slate-500">
                 Focus
               </dt>
-              <dd className="mt-1 text-slate-700">
+              <dd className="mt-1 font-medium text-slate-700 text-xs sm:text-sm">
                 Web Apps · Testing · Coordination
               </dd>
             </div>
             <div>
-              <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              <dt className="text-[10px] sm:text-xs font-medium uppercase tracking-wide text-slate-500">
                 Availability
               </dt>
-              <dd className="mt-1 text-slate-700">Open to opportunities</dd>
+              <dd className="mt-1 font-medium text-slate-700 text-xs sm:text-sm">
+                Open to opportunities
+              </dd>
             </div>
           </dl>
         </section>
-        <div className="relative z-10 -mt-33 -mb-25 h-52 w-96 mx-auto flex items-center justify-center">
+        <div
+          className="relative z-10 
+        -mt-20 sm:-mt-20 md:-mt-30
+         -mb-10 sm:-mb-10 md:-mb-25
+
+          h-40 w-64 sm:h-52 sm:w-96 mx-auto flex items-center justify-center"
+        >
           <Image
             src="/images/miffy/miffy-writing.png"
             alt="Miffy illustration"
