@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { CarouselSize } from "../components/Carousel";
 
 export type Project = {
@@ -62,29 +61,13 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section className="relative grid gap-10 items-center">
-      <div className="space-y-6 pb-10">
+    <section className="relative grid gap-10 items-center overflow-hidden lg:overflow-visible">
+      <div className="space-y-6 pb-10 w-full overflow-x-hidden lg:overflow-x-visible">
         <p className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1 text-xs font-medium uppercase tracking-[0.25em] text-[#ff6b4a] shadow-sm">
           <span className="h-2 w-2 rounded-full bg-[#f6a623]" />
           Projects and Achievements
         </p>
         <CarouselSize projects={projects} />
-      </div>
-
-      {/* Center miffy image overlapping the project cards like a gallery accent */}
-      <div
-        className="pointer-events-none absolute left-1/2 -bottom-15 sm:-bottom-30 z-10 
-       h-40 w-64 sm:h-52 sm:w-96
-       
-      -translate-x-1/2 overflow-hidden border-none pt-10"
-      >
-        <Image
-          src="/images/miffy/miffy-back.png"
-          alt="Miffy illustration"
-          width={400}
-          height={400}
-          className="h-full w-full object-cover"
-        />
       </div>
     </section>
   );

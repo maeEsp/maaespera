@@ -52,9 +52,9 @@ export function CarouselSize({ projects, onImageClick }: CarouselSizeProps) {
   }, [selectedProject]);
 
   return (
-    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-full mx-auto">
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-full mx-auto lg:px-12">
       {/* Mobile scroll hint */}
-      <p className="text-xs text-slate-500 text-center mb-2 md:hidden">
+      <p className="text-xs text-slate-500 text-center mb-2 lg:hidden">
         Swipe to see more →
       </p>
 
@@ -71,12 +71,12 @@ export function CarouselSize({ projects, onImageClick }: CarouselSizeProps) {
               className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
             >
               <div className="p-1 sm:p-2">
-                <article className="flex flex-col justify-between w-full h-52 rounded-3xl border border-[#ffd18a] bg-white overflow-hidden text-sm shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                <article className="flex flex-col justify-between w-full h-52 md:h-64 lg:h-72 rounded-3xl border border-[#ffd18a] bg-white overflow-hidden text-sm shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
                   {/* Project Image - Clickable */}
                   {project.image && (
                     <div
                       onClick={() => handleImageClick(project)}
-                      className="relative w-full h-32 overflow-hidden cursor-pointer"
+                      className="relative w-full h-32 md:h-40 lg:h-48 overflow-hidden cursor-pointer"
                     >
                       <Image
                         src={project.image}
@@ -87,7 +87,7 @@ export function CarouselSize({ projects, onImageClick }: CarouselSizeProps) {
                     </div>
                   )}
 
-                  <div className="flex flex-col justify-between p-4 grow">
+                  <div className="flex flex-col justify-between p-4 md:p-5 lg:p-6 grow">
                     <div className="space-y-2">
                       {project.link ? (
                         <h4
@@ -150,8 +150,8 @@ export function CarouselSize({ projects, onImageClick }: CarouselSizeProps) {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden lg:flex border border-[#ffd18a]" />
-        <CarouselNext className="hidden lg:flex border border-[#ffd18a]" />
+        <CarouselPrevious className="hidden md:flex lg:flex border border-[#ffd18a]" />
+        <CarouselNext className="hidden md:flex lg:flex border border-[#ffd18a]" />
       </ShadcnCarousel>
 
       {/* Modal for project screenshots */}

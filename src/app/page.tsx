@@ -178,8 +178,17 @@ export default function Home() {
           />
         </div>
 
-        <div id="projects">
+        <div id="projects" className="relative">
           <Projects />
+          <div className="pointer-events-none absolute left-1/2 -bottom-15 sm:-bottom-30 z-10 h-40 w-64 sm:h-52 sm:w-96 -translate-x-1/2 overflow-hidden border-none pt-10">
+            <Image
+              src="/images/miffy/miffy-back.png"
+              alt="Miffy illustration"
+              width={400}
+              height={400}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
 
         <div id="skillsets">
