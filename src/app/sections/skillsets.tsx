@@ -29,7 +29,7 @@ export default function Skillsets() {
               Manual testing
             </li>
             <li className="rounded-full bg-[#fff1e0] px-3 py-1 text-xs font-medium text-slate-800">
-              Test case writing
+              Creating Git tickets / GitHub Issues{" "}
             </li>
             <li className="rounded-full bg-[#fff1e0] px-3 py-1 text-xs font-medium text-slate-800">
               Bug reporting
@@ -42,13 +42,19 @@ export default function Skillsets() {
           </h4>
           <ul className="flex flex-wrap gap-2">
             <li className="rounded-full bg-[#fff1e0] px-3 py-1 text-xs font-medium text-slate-800">
-              Agile / Scrum
+              Project Planning and Management
             </li>
             <li className="rounded-full bg-[#fff1e0] px-3 py-1 text-xs font-medium text-slate-800">
-              Task coordination
+              Developing Detailed Project Plans, Timelines, and Deliverables
             </li>
             <li className="rounded-full bg-[#fff1e0] px-3 py-1 text-xs font-medium text-slate-800">
-              Documentation
+              Milestone Tracking and Management
+            </li>
+            <li className="rounded-full bg-[#fff1e0] px-3 py-1 text-xs font-medium text-slate-800">
+              Team Collaboration
+            </li>
+            <li className="rounded-full bg-[#fff1e0] px-3 py-1 text-xs font-medium text-slate-800">
+              Time Management
             </li>
           </ul>
         </div>

@@ -197,7 +197,7 @@ export default function Home() {
 
         <footer className="border-t border-[#ffdfaa] pt-6 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()}All Rights Reserved. Made with a little
+            © {new Date().getFullYear()} All Rights Reserved. Made with a little
             bunny energy.
           </p>
         </footer>
