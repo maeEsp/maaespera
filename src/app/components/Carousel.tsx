@@ -52,7 +52,7 @@ export function CarouselSize({ projects, onImageClick }: CarouselSizeProps) {
   }, [selectedProject]);
 
   return (
-    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-full mx-auto lg:px-12">
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-full mx-auto lg:px-6">
       {/* Mobile scroll hint */}
       <p className="text-xs text-slate-500 text-center mb-2 lg:hidden">
         Swipe to see more →
@@ -64,13 +64,13 @@ export function CarouselSize({ projects, onImageClick }: CarouselSizeProps) {
         }}
         className="w-full"
       >
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className="-ml-2 md:-ml-4 lg:-ml-2">
           {projects.map((project, index) => (
             <CarouselItem
               key={index}
-              className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
+              className="pl-2 md:pl-4 lg:pl-2 basis-full md:basis-1/2 lg:basis-1/3"
             >
-              <div className="p-1 sm:p-2">
+              <div className="p-1 sm:p-2 lg:p-1.5">
                 <article className="flex flex-col justify-between w-full h-52 md:h-64 lg:h-72 rounded-3xl border border-[#ffd18a] bg-white overflow-hidden text-sm shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
                   {/* Project Image - Clickable */}
                   {project.image && (

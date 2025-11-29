@@ -8,7 +8,7 @@ import Skillsets from "./sections/skillsets";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#fff9f2] text-slate-900">
-      <div className="mx-auto flex max-w-5xl flex-col gap-8 md:gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 md:gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
         <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-lg sm:text-xl font-semibold tracking-tight">
