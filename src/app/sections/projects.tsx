@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { CarouselSize } from "../components/Carousel";
 
 export type Project = {
@@ -62,32 +61,6 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  // Close modal on ESC key and prevent body scroll
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelectedProject(null);
-      }
-    };
-
-    if (selectedProject) {
-      document.addEventListener("keydown", handleEscape);
-      // Prevent body scroll and horizontal overflow
-      document.body.style.overflow = "hidden";
-      document.body.style.overflowX = "hidden";
-      document.documentElement.style.overflowX = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
-      document.body.style.overflowX = "unset";
-      document.documentElement.style.overflowX = "unset";
-    };
-  }, [selectedProject]);
-
   return (
     <section className="relative grid gap-10 items-center">
       <div className="space-y-6 pb-10">
@@ -95,7 +68,7 @@ export default function Projects() {
           <span className="h-2 w-2 rounded-full bg-[#f6a623]" />
           Projects and Achievements
         </p>
-        <CarouselSize projects={projects} onImageClick={setSelectedProject} />
+        <CarouselSize projects={projects} />
       </div>
 
       {/* Center miffy image overlapping the project cards like a gallery accent */}
