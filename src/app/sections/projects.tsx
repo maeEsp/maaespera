@@ -21,6 +21,16 @@ const projects: Project[] = [
     image: "/images/screenshots/tas.png",
   },
   {
+    title: "ADTO Project",
+    description:
+      "An event booking management system with client and admin sides, allowing organizations and student bodies to manage schedules, events, and attendance efficiently. Includes responsive UI, calendar views, registration, and real-time attendance tracking, while showcasing services and past projects effectively.",
+
+    tech: ["React", "Next.js", "Tailwind CSS", "NestJS", "AWS", "Supabase"],
+    link: "https://samahan.addu.edu.ph/adto/home",
+    image: "/images/screenshots/adto.png",
+  },
+  // https://samahan.addu.edu.ph/adto/home
+  {
     title: "AMRY Pharmacy Management System",
     description:
       "A management system for AMRY Pharmacy, which allows for the management of inventory, sales, and customers.",
