@@ -1,15 +1,63 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Projects from "./sections/projects";
 import Skillsets from "./sections/skillsets";
 
 export default function Home() {
+  useEffect(() => {
+    const revealElements = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+    );
+
+    if (!revealElements.length) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reduceMotion) {
+      revealElements.forEach((element) => element.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <main className="min-h-screen bg-[#fff9f2] text-slate-900">
+    <main className="relative min-h-screen overflow-x-clip bg-[#fff9f2] text-slate-900">
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="animate-drift absolute -left-20 top-16 h-44 w-44 rounded-full bg-[#ffe2b5]/50 blur-2xl" />
+        <div className="animate-drift absolute right-0 top-72 h-52 w-52 rounded-full bg-[#ffd4c7]/60 blur-2xl delay-200" />
+        <div className="animate-drift absolute left-1/2 top-216 h-40 w-40 -translate-x-1/2 rounded-full bg-[#fff0d2]/70 blur-2xl delay-400" />
+      </div>
       <div className="mx-auto flex max-w-6xl flex-col gap-8 md:gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-        <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <header
+          data-reveal
+          className="reveal-on-scroll flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        >
           <div>
             <h1 className="text-lg sm:text-xl font-semibold tracking-tight">
               Mae Angela Espera
@@ -26,7 +74,7 @@ export default function Home() {
                 const element = document.getElementById("projects");
                 element?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="transition-colors hover:text-slate-900"
+              className="hover-spring transition-colors hover:text-slate-900"
             >
               Projects
             </a>
@@ -37,7 +85,7 @@ export default function Home() {
                 const element = document.getElementById("skillsets");
                 element?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="transition-colors hover:text-slate-900"
+              className="hover-spring transition-colors hover:text-slate-900"
             >
               Skillsets
             </a>
@@ -46,11 +94,14 @@ export default function Home() {
 
         <section
           id="hero"
-          className="grid grid-cols-1 items-center gap-10 py-10 md:grid-cols-2 w"
+          className="grid grid-cols-1 items-center gap-10 py-10 md:grid-cols-2"
         >
-          <div className="flex justify-center">
+          <div
+            data-reveal
+            className="reveal-on-scroll delay-100 flex justify-center"
+          >
             <div className="relative">
-              <div className="h-48 w-48 md:h-64 md:w-64 lg:h-96 lg:w-96 overflow-hidden rounded-full border-4 border-white bg-white shadow-md">
+              <div className="animate-float h-48 w-48 overflow-hidden rounded-full border-4 border-white bg-white shadow-md md:h-64 md:w-64 lg:h-96 lg:w-96">
                 <Image
                   src="/images/MAE_IDPIC.jpg"
                   alt="Portrait of Mae Angela Espera"
@@ -61,7 +112,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="absolute -left-15 md:-left-15 lg:-left-20 bottom-0 z-10 h-32 w-32 md:h-32 md:w-32 lg:h-48 lg:w-48 overflow-hidden rounded-2xl border-4 border-none">
+              <div className="hover-bunny animate-float-slow absolute bottom-0 -left-15 z-10 h-32 w-32 overflow-hidden rounded-2xl border-4 border-none md:-left-15 md:h-32 md:w-32 lg:-left-20 lg:h-48 lg:w-48">
                 <Image
                   src="/images/miffy/miffy-flowers.png"
                   alt="Miffy illustration"
@@ -74,7 +125,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 text-center md:text-left">
+          <div
+            data-reveal
+            className="reveal-on-scroll delay-200 flex flex-col gap-4 text-center md:text-left"
+          >
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#ff6b4a]">
               Portfolio
             </p>
@@ -87,7 +141,7 @@ export default function Home() {
             <div className="mt-2 flex flex-wrap justify-center gap-3 md:justify-start">
               <a
                 href="mailto:espera.maea@gmail.com"
-                className="rounded-full bg-[#ff6b4a] px-5 py-2 text-sm font-medium text-white shadow-sm transition-transform hover:scale-105 hover:bg-[#ff5933]"
+                className="hover-spring rounded-full bg-[#ff6b4a] px-5 py-2 text-sm font-medium text-white shadow-sm hover:bg-[#ff5933]"
               >
                 Email me
               </a>
@@ -95,7 +149,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/mae-espera-635109368/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-[#ffd18a] px-5 py-2 text-sm font-medium text-slate-800 transition-transform hover:scale-105 hover:border-[#ffbf5c] hover:bg-[#fef0d8]"
+                className="hover-spring rounded-full border border-[#ffd18a] px-5 py-2 text-sm font-medium text-slate-800 hover:border-[#ffbf5c] hover:bg-[#fef0d8]"
               >
                 LinkedIn
               </Link>
@@ -103,7 +157,7 @@ export default function Home() {
                 href="https://github.com/maeEsp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-[#ffd18a] px-5 py-2 text-sm font-medium text-slate-800 transition-transform hover:scale-105 hover:border-[#ffbf5c] hover:bg-[#fef0d8]"
+                className="hover-spring rounded-full border border-[#ffd18a] px-5 py-2 text-sm font-medium text-slate-800 hover:border-[#ffbf5c] hover:bg-[#fef0d8]"
               >
                 GitHub
               </Link>
@@ -111,19 +165,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="space-y-4 rounded-3xl bg-[#fef0d8] px-4 py-4 sm:px-6 sm:py-6 shadow-sm flex flex-col md:flex-row gap-4 md:gap-6">
+        <section
+          data-reveal
+          className="reveal-on-scroll delay-300 flex flex-col gap-4 space-y-4 rounded-3xl bg-[#fef0d8] px-4 py-4 shadow-sm sm:px-6 sm:py-6 md:flex-row md:gap-6"
+        >
           <div className="w-full md:w-1/2">
             <h3 className="text-base sm:text-lg font-semibold tracking-tight text-[#f6a623] pb-2">
               Soft, simple, and friendly web experiences.
             </h3>
             <p className="text-xs sm:text-sm leading-relaxed text-slate-600 md:text-base">
-              I am a front-end developer with experience creating responsive,
-              accessible, and user-centered digital experiences, while also
-              being adaptable to roles in quality assurance and project
-              management. I excel at translating design concepts into scalable
-              interfaces, ensuring product reliability through structured
-              testing, and supporting teams with clear communication and
-              organized workflows.
+              I am a front-end developer with experience building responsive,
+              accessible, and user-centered digital experiences, complemented by
+              a strong background in UI/UX design using Figma. I specialize in
+              translating design concepts into scalable interfaces, crafting
+              intuitive user experiences, ensuring product quality through
+              structured testing, and supporting teams with clear communication
+              and organized workflows.
             </p>
           </div>
 
@@ -133,7 +190,7 @@ export default function Home() {
                 Role
               </dt>
               <dd className="mt-1 font-medium text-slate-700 text-xs sm:text-sm">
-                Frontend Developer · QA · Project Management
+                Frontend Developer · UI/UX
               </dd>
             </div>
             <div>
@@ -149,7 +206,7 @@ export default function Home() {
                 Focus
               </dt>
               <dd className="mt-1 font-medium text-slate-700 text-xs sm:text-sm">
-                Web Apps · Testing · Coordination
+                Web Apps · UI/UX · Coordination
               </dd>
             </div>
             <div>
@@ -163,10 +220,10 @@ export default function Home() {
           </dl>
         </section>
         <div
-          className="relative z-10 
+          data-reveal
+          className="reveal-on-scroll delay-100 hover-bunny animate-float relative z-10 
         -mt-20 sm:-mt-20 md:-mt-30
          -mb-10 sm:-mb-10 md:-mb-25
-
           h-40 w-64 sm:h-52 sm:w-96 mx-auto flex items-center justify-center"
         >
           <Image
@@ -178,9 +235,13 @@ export default function Home() {
           />
         </div>
 
-        <div id="projects" className="relative">
+        <div
+          id="projects"
+          data-reveal
+          className="reveal-on-scroll delay-100 relative"
+        >
           <Projects />
-          <div className="pointer-events-none absolute left-1/2 -bottom-15 sm:-bottom-30 z-10 h-40 w-64 sm:h-52 sm:w-96 -translate-x-1/2 overflow-hidden border-none pt-10">
+          <div className="hover-bunny animate-float-slow pointer-events-none absolute left-1/2 z-10 h-40 w-64 -translate-x-1/2 overflow-hidden border-none pt-10 sm:-bottom-30 sm:h-52 sm:w-96 -bottom-15">
             <Image
               src="/images/miffy/miffy-back.png"
               alt="Miffy illustration"
@@ -191,7 +252,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="skillsets">
+        <div id="skillsets" data-reveal className="reveal-on-scroll delay-200">
           <Skillsets />
         </div>
 

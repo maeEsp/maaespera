@@ -13,20 +13,20 @@ export type Project = {
 
 const projects: Project[] = [
   {
-    title: "SAMAHAN Palaro 2024",
+    title: "Tech Advise Soulutions",
     description:
-      "Official website for SAMAHAN Palaro 2024, featuring a full event gallery showcasing highlights, game moments, and team performances.",
+      "Official website for Tech Advise Soulutions featuring a modern landing page and case studies section, designed to showcase services, highlight past projects, and communicate solutions effectively.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    link: "https://samahan-palaro-2024-samahan-system-developments-projects.vercel.app/",
-    image: "/images/screenshots/palaro-hero.png",
+    link: "https://www.techadvise.com.sg/",
+    image: "/images/screenshots/tas.png",
   },
   {
-    title: "MISSCON 2025",
+    title: "AMRY Pharmacy Management System",
     description:
-      "Official website for the Mindanao International Studies Society Convention 2025, showcasing event details, registration workflows, and announcements",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    link: "https://misscon2025.info/",
-    image: "/images/screenshots/misscon.png",
+      "A management system for AMRY Pharmacy, which allows for the management of inventory, sales, and customers.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Django", "Supabase"],
+    link: "https://github.com/Hearteu/amrypharmacy",
+    image: "/images/screenshots/sia.png",
   },
   {
     title: "SAMAHAN UFest-Palaro 2025",
@@ -37,19 +37,31 @@ const projects: Project[] = [
     image: "/images/screenshots/ufestpalaro.png",
   },
   {
-    title: "AMRY Pharmacy Management System",
+    title: "SAMAHAN Palaro 2024",
     description:
-      "A management system for AMRY Pharmacy, which allows for the management of inventory, sales, and customers.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Django", "Supabase"],
-    image: "/images/screenshots/sia.png",
+      "Official website for SAMAHAN Palaro 2024, featuring a full event gallery showcasing highlights, game moments, and team performances.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://samahan-palaro-2024-samahan-system-developments-projects.vercel.app/",
+    image: "/images/screenshots/palaro-hero.png",
   },
+
   {
     title: "Jurisprudence Chatbot (Thesis)",
     description:
       "A chatbot that helps students with their jurisprudence questions.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Django", "LLM"],
+    link: "https://github.com/Hearteu/phlaw-chatbot",
     image: "/images/screenshots/thesis.png",
   },
+  {
+    title: "MISSCON 2025",
+    description:
+      "Official website for the Mindanao International Studies Society Convention 2025, showcasing event details, registration workflows, and announcements",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://misscon2025.info/",
+    image: "/images/screenshots/misscon.png",
+  },
+
   {
     title: "Aura Beauty",
     description:
@@ -61,8 +73,8 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section className="relative grid gap-10 items-center overflow-hidden lg:overflow-visible">
-      <div className="space-y-6 pb-10 w-full overflow-x-hidden lg:overflow-x-visible">
+    <section className="relative w-full">
+      <div className="w-full space-y-6 pb-10">
         <p className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1 text-xs font-medium uppercase tracking-[0.25em] text-[#ff6b4a] shadow-sm">
           <span className="h-2 w-2 rounded-full bg-[#f6a623]" />
           Projects and Achievements
